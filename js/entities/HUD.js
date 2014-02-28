@@ -126,9 +126,9 @@ var Tweet = me.GUI_Object.extend({
   },
 
   onClick: function(event) {
-    var shareText = 'Just made ' + game.data.steps + ' steps on Clumsy Bird! Can you beat me? Try online here!';
-    var url = 'http://ellisonleao.github.io/clumsy-bird/';
-    var hashtags = 'clumsybird,melonjs'
+    var shareText = 'Just made ' + game.data.steps + ' steps on Flappy Tom! Life\'s a little easier with Tom around!';
+    var url = 'https://vote.union.ic.ac.uk/login.php';
+    var hashtags = 'votetom,voteicu'
     window.open('https://twitter.com/intent/tweet?text=' + shareText + '&hashtags=' + hashtags + '&count=' + url + '&url=' + url, 'Tweet!', 'height=300,width=400')
     return false;
   }

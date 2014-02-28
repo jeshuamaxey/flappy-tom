@@ -1,19 +1,19 @@
 <!DOCTYPE HTML>
 <html lang="en" manifest="manifest.appcache">
   <head>
-    <title>Clumsy Bird</title>
+    <title>Flappy Tom</title>
     <link rel="stylesheet" type="text/css" media="screen" href="index.css">
     <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta charset="UTF-8" />
-    <meta name="description" content="Clumsy Bird - A Flappy Bird clone using MelonJS"/>
-    <meta name="keywords" content="flappybird, flappy, bird, game, html5, melonjs,clone"/>
+    <meta name="description" content="Flappy Tom - Life's easier with Tom around"/>
+    <meta name="keywords" content="flappytom, flappy, tom, wheeler, ICU"/>
     <meta name="robots" content="index, follow">
     <meta property="og:image" content="http://ellisonleao.github.io/clumsy-bird/data/img/bg.png" />
-    <meta property="og:title" content="Clumsy Bird - A Flappy Bird clone using MelonJS"/>
+    <meta property="og:title" content="Flappy Tom - Life's easier with Tom around"/>
     <meta property="og:url" content="http://ellisonleao.github.io/clumsy-bird/"/>
-    <meta property="og:site_name" content="Clumsy Bird - MelonJS"/>
+    <meta property="og:site_name" content="Flappy Tom"/>
   </head>
 
   <body>
@@ -21,7 +21,7 @@
     <script>
       window.fbAsyncInit = function() {
         FB.init({
-          appId      : '213642148840283',
+          appId      : '229230467263633',
           status     : true,
           xfbml      : true
         });
@@ -31,7 +31,7 @@
          var js, fjs = d.getElementsByTagName(s)[0];
          if (d.getElementById(id)) {return;}
          js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/pt_BR/all.js";
+         js.src = "//connect.facebook.net/en_UK/all.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
     </script>
@@ -39,45 +39,20 @@
     <div id="screen"></div>
     <!-- Sharing section -->
     <div id="share">
-      <iframe 
-        src="http://ghbtns.com/github-btn.html?user=ellisonleao&repo=clumsy-bird&type=watch&count=true"
-        allowtransparency="true" 
-        frameborder="0" 
-        scrolling="0" 
-        width="77" 
-        height="20">
-      </iframe>
       <div 
         class="fb-share-button" 
-        data-href="http://ellisonleao.github.io/clumsy-bird/" 
+        data-href="http://votetom.in/flappytom" 
         data-type="button_count">
       </div>
       <a 
-        href="https://twitter.com/ellisonleao" 
+        href="https://twitter.com/tomjwheeler" 
         class="twitter-follow-button" 
-        data-show-count="false">Follow @ellisonleao
+        data-show-count="false">Follow @tomjwheeler
       </a>
-      <div class="google">
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-          ga('create', 'UA-899823-9', 'ellisonleao.github.io');
-          ga('send', 'pageview');
-        </script>
-        <script type="text/javascript"><!--
-        google_ad_client = "ca-pub-1107121710553160";
-        /* Clumsy Ads */
-        google_ad_slot = "4971477596";
-        google_ad_width = 728;
-        google_ad_height = 90;
-        //-->
-        </script>
-        <script type="text/javascript"
-        src="//pagead2.googlesyndication.com/pagead/show_ads.js">
-        </script>
-      </div>
+      <br>
+      <br>
+      <a id="credit" href="https://github.com/ellisonleao/clumsy-bird">Made possible by Ellison Leão's Flappy Bird Clone.</a>
+     
       <script>
         !function(d,s,id){
           var js,fjs=d.getElementsByTagName(s)[0],

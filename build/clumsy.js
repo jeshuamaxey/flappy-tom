@@ -38,12 +38,13 @@ var game = {
 
 game.resources = [
 
-	 {name: "bg", type:"image", src: "data/img/bg.png"},
+	 {name: "bg", type:"image", src: "data/img/bgtom.png"},
+	 {name: "tom", type:"image", src: "data/img/clumsytom.png"},
 	 {name: "clumsy", type:"image", src: "data/img/clumsy.png"},
 	 {name: "pipe", type:"image", src: "data/img/pipe.png"},
 	 {name: "logo", type:"image", src: "data/img/logo.png"},
 	 {name: "ground", type:"image", src: "data/img/ground.png"},
-	 {name: "gameover", type:"image", src: "data/img/gameover.png"},
+	 {name: "gameover", type:"image", src: "data/img/easier.png"},
 	 {name: "gameoverbg", type:"image", src: "data/img/gameoverbg.png"},
 	 {name: "hit", type:"image", src: "data/img/hit.png"},
 	 {name: "getready", type:"image", src: "data/img/getready.png"},
@@ -56,10 +57,47 @@ game.resources = [
 	 {name: "hit", type: "audio", src: "data/sfx/"},
 	 {name: "lose", type: "audio", src: "data/sfx/"},
 ];
+var g = g || {};
+
+g.mode = 'easy';
+
+g.jumpHeight = {
+  'easy': 40,
+  'hard': 72
+};
+
+g.gravityForce = {
+  'easy': 0.01,
+  'hard': 0.01
+};
+
+g.gravityForceInc = {
+  'easy': 0.2,
+  'hard': 0.2
+};
+
+g.angleInc = {
+  'easy': 1,
+  'hard': 3
+};
+
+g.spriteImg = {
+  'easy': 'tom',
+  'hard': 'clumsy'
+};
+
+g.jumpHeight = g.jumpHeight[g.mode];
+g.gravityForce = g.gravityForce[g.mode];
+g.gravityForceInc = g.gravityForceInc[g.mode];
+g.angleInc = g.angleInc[g.mode];
+g.spriteImg = g.spriteImg[g.mode];
+
+console.log(g)
+
 var BirdEntity = me.ObjectEntity.extend({
   init: function(x, y) {
     var settings = {};
-    settings.image = me.loader.getImage('clumsy');
+    settings.image = me.loader.getImage(g.spriteImg);
     settings.width = 85;
     settings.height = 60;
     settings.spritewidth = 85;
@@ -68,7 +106,7 @@ var BirdEntity = me.ObjectEntity.extend({
     this.parent(x, y, settings);
     this.alwaysUpdate = true;
     this.gravity = 0.2;
-    this.gravityForce = 0.01;
+    this.gravityForce = g.gravityForce;
     this.maxAngleRotation = Number.prototype.degToRad(30);
     this.maxAngleRotationDown = Number.prototype.degToRad(90);
     this.renderable.addAnimation("flying", [0, 1, 2]);
@@ -87,19 +125,19 @@ var BirdEntity = me.ObjectEntity.extend({
     // mechanics
     if (game.data.start) {
       if (me.input.isKeyPressed('fly')) {
-        this.gravityForce = 0.01;
+        this.gravityForce = g.gravityForce;
 
         var currentPos = this.pos.y;
         // stop the previous one
         this.flyTween.stop()
-        this.flyTween.to({y: currentPos - 72}, 100);
+        this.flyTween.to({y: currentPos - g.jumpHeight}, 100);
         this.flyTween.start();
 
         this.renderable.angle = -this.maxAngleRotation;
       } else {
-        this.gravityForce += 0.2;
+        this.gravityForce += g.gravityForceInc;
         this.pos.y += me.timer.tick * this.gravityForce;
-        this.renderable.angle += Number.prototype.degToRad(3) * me.timer.tick;
+        this.renderable.angle += Number.prototype.degToRad(g.angleInc) * me.timer.tick;
         if (this.renderable.angle > this.maxAngleRotationDown)
           this.renderable.angle = this.maxAngleRotationDown;
       }
@@ -388,9 +426,9 @@ var Tweet = me.GUI_Object.extend({
   },
 
   onClick: function(event) {
-    var shareText = 'Just made ' + game.data.steps + ' steps on Clumsy Bird! Can you beat me? Try online here!';
-    var url = 'http://ellisonleao.github.io/clumsy-bird/';
-    var hashtags = 'clumsybird,melonjs'
+    var shareText = 'Just made ' + game.data.steps + ' steps on Flappy Tom! Life\'s a little easier with Tom around!';
+    var url = 'https://vote.union.ic.ac.uk/login.php';
+    var hashtags = 'votetom,voteicu'
     window.open('https://twitter.com/intent/tweet?text=' + shareText + '&hashtags=' + hashtags + '&count=' + url + '&url=' + url, 'Tweet!', 'height=300,width=400')
     return false;
   }
@@ -593,7 +631,7 @@ game.GameOverScreen = me.ScreenObject.extend({
           this.parent(new me.Vector2d(), 100, 100);
           this.font = new me.Font('gamefont', 40, 'black', 'left');
           this.steps = 'Steps: ' + game.data.steps.toString();
-          this.topSteps= 'Higher Step: ' + me.save.topSteps.toString();
+          this.topSteps= 'Highest Score: ' + me.save.topSteps.toString();
       },
 
       update: function () {

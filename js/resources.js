@@ -1,11 +1,12 @@
 game.resources = [
 
-	 {name: "bg", type:"image", src: "data/img/bg.png"},
+	 {name: "bg", type:"image", src: "data/img/bgtom.png"},
+	 {name: "tom", type:"image", src: "data/img/clumsytom.png"},
 	 {name: "clumsy", type:"image", src: "data/img/clumsy.png"},
 	 {name: "pipe", type:"image", src: "data/img/pipe.png"},
 	 {name: "logo", type:"image", src: "data/img/logo.png"},
 	 {name: "ground", type:"image", src: "data/img/ground.png"},
-	 {name: "gameover", type:"image", src: "data/img/gameover.png"},
+	 {name: "gameover", type:"image", src: "data/img/easier.png"},
 	 {name: "gameoverbg", type:"image", src: "data/img/gameoverbg.png"},
 	 {name: "hit", type:"image", src: "data/img/hit.png"},
 	 {name: "getready", type:"image", src: "data/img/getready.png"},
