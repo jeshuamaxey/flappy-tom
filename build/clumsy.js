@@ -395,18 +395,18 @@ var Share = me.GUI_Object.extend({
   },
 
   onClick: function(event) {
-    var shareText = 'Just made ' + game.data.steps + ' steps on Clumsy Bird! Can you beat me? Try online here!';
-    var url = 'http://ellisonleao.github.io/clumsy-bird/';
+    var shareText = 'Just made ' + game.data.steps + ' steps on Flappy Tom! Can you beat me? Try online here!';
+    var url = 'http://votetom.in/flappy-tom';
     FB.ui(
       {
        method: 'feed',
-       name: 'My Clumsy Bird Score!',
-       caption: "Share to your friends",
+       name: 'My Flappy Tom Score!',
+       caption: "Share with your friends",
        description: (
           shareText
        ),
        link: url,
-       picture: 'http://ellisonleao.github.io/clumsy-bird/data/img/clumsy.png'
+       picture: 'http://votetom.in/flappy-tom/data/img/clumsytom.png'
       }
     );
     return false;
@@ -427,7 +427,7 @@ var Tweet = me.GUI_Object.extend({
 
   onClick: function(event) {
     var shareText = 'Just made ' + game.data.steps + ' steps on Flappy Tom! Life\'s a little easier with Tom around!';
-    var url = 'https://vote.union.ic.ac.uk/login.php';
+    var url = 'http://votetom.in/flappy-tom/';
     var hashtags = 'votetom,voteicu'
     window.open('https://twitter.com/intent/tweet?text=' + shareText + '&hashtags=' + hashtags + '&count=' + url + '&url=' + url, 'Tweet!', 'height=300,width=400')
     return false;
@@ -494,7 +494,7 @@ game.TitleScreen = me.ScreenObject.extend({
       // unregister the event
     me.event.unsubscribe(this.handler);
     me.input.unbindKey(me.input.KEY.ENTER);
-        me.input.unbindKey(me.input.KEY.SPACE);
+    me.input.unbindKey(me.input.KEY.SPACE);
     me.input.unbindMouse(me.input.mouse.LEFT);
     me.game.world.removeChild(this.ground);
   }
@@ -606,8 +606,8 @@ game.GameOverScreen = me.ScreenObject.extend({
     me.game.world.addChild(this.ground, 11);
 
     // share button
-    // this.share = new Share();
-    // me.game.world.addChild(this.share, 12);
+    this.share = new Share();
+    me.game.world.addChild(this.share, 12);
 
     //tweet button
     this.tweet = new Tweet();
