@@ -606,8 +606,8 @@ game.GameOverScreen = me.ScreenObject.extend({
     me.game.world.addChild(this.ground, 11);
 
     // share button
-    this.share = new Share();
-    me.game.world.addChild(this.share, 12);
+    // this.share = new Share();
+    // me.game.world.addChild(this.share, 12);
 
     //tweet button
     this.tweet = new Tweet();

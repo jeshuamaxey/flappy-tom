@@ -1,101 +1,138 @@
 <!DOCTYPE HTML>
 <html lang="en" manifest="manifest.appcache">
-  <head>
-    <title>Flappy Tom</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="index.css">
-    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta charset="UTF-8" />
-    <meta name="description" content="Flappy Tom - Life's easier with Tom around"/>
-    <meta name="keywords" content="flappytom, flappy, tom, wheeler, ICU"/>
-    <meta name="robots" content="index, follow">
-    <meta property="og:image" content="http://ellisonleao.github.io/clumsy-bird/data/img/bg.png" />
-    <meta property="og:title" content="Flappy Tom - Life's easier with Tom around"/>
-    <meta property="og:url" content="http://ellisonleao.github.io/clumsy-bird/"/>
-    <meta property="og:site_name" content="Flappy Tom"/>
-  </head>
+<head>
+  <title>Flappy Tom</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="index.css">
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta charset="UTF-8" />
 
-  <body>
-    <div id="fb-root"></div>
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '229230467263633',
-          status     : true,
-          xfbml      : true
-        });
-      };
+  <meta name="description" content="Flappy Tom - Life's easier with Tom around"/>
+  <meta name="keywords" content="flappytom, flappy, tom, wheeler, ICU"/>
+  <meta name="robots" content="index, follow">
+  <meta property="og:image" content="http://ellisonleao.github.io/clumsy-bird/data/img/bg.png" />
+  <meta property="og:title" content="Flappy Tom - Life's easier with Tom around"/>
+  <meta property="og:url" content="http://ellisonleao.github.io/clumsy-bird/"/>
+  <meta property="og:site_name" content="Flappy Tom"/>
 
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_UK/all.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <!-- Canvas placeholder -->
-    <div id="screen"></div>
-    <!-- Sharing section -->
-    <div id="share">
-      <div 
-        class="fb-share-button" 
-        data-href="http://votetom.in/flappytom" 
-        data-type="button_count">
-      </div>
-      <a 
-        href="https://twitter.com/tomjwheeler" 
-        class="twitter-follow-button" 
-        data-show-count="false">Follow @tomjwheeler
-      </a>
-      <br>
-      <br>
-      <a id="credit" href="https://github.com/ellisonleao/clumsy-bird">Made possible by Ellison Leão's Flappy Bird Clone.</a>
-     
-      <script>
-        !function(d,s,id){
-          var js,fjs=d.getElementsByTagName(s)[0],
-              p=/^http:/.test(d.location)?'http':'https';
-          if(!d.getElementById(id)){
-            js=d.createElement(s);
-            js.id=id;
-            js.src=p+'://platform.twitter.com/widgets.js';
-            fjs.parentNode.insertBefore(js,fjs);
-          }
-        }(document, 'script', 'twitter-wjs');
-      </script>
-    </div>
+  <!-- BEGIN Metadata added by Add-Meta-Tags WordPress plugin -->
+  <meta name="description" content="I spent this weekend at BL-NK at Build The News, a hackathon laid on by The Times, The Sunday Times and The Sun which my team and I won. Loads of teams entered and they were some pretty cool submissions, too much to do justice by covering here. This post is an account of our team s journey over the last two days." />
+  <meta name="keywords" content="jeshua, maxey, code, tech, blog, design, blog, build the news, hackathon, low pass, the sun, the sunday times, the times" />
+  <!-- END Metadata added by Add-Meta-Tags WordPress plugin -->
 
-    <!-- melonJS Library -->
-    <script type="text/javascript" src="lib/melonJS-1.0.0-min.js" ></script>
-    <script type="text/javascript" src="build/clumsy-min.js" ></script>
-    <!-- Bootstrap & Mobile optimization tricks -->
-    <script type="text/javascript">
-      window.onReady(function onReady() {
-        game.onload();
 
-        // Mobile browser hacks
-        if (me.device.isMobile && !navigator.isCocoonJS) {
-          // Prevent the webview from moving on a swipe
-          window.document.addEventListener("touchmove", function (e) {
-            e.preventDefault();
-            window.scroll(0, 0);
-            return false;
-          }, false);
+  <!-- SEO -->
+  <meta name="description" content="Flappy Tom is a tongue in cheek game by Tom Wheeler&#039;s campaign team. Play it and see for yourself how life&#039;s a little easier with Tom around"/>
+  <link rel="canonical" href="http://votetom.in/flappy-tom/" />
+  <link rel="publisher" href="https://votetom.in/" />
+  <meta property="og:locale" content="en_UK" />
+  <meta property="og:type" content="game" />
+  <meta property="og:title" content="Flappy Tom" />
+  <meta property="og:description" content="Flappy Tom is a tongue in cheek game by Tom Wheeler&#039;s campaign team. Play it and see for yourself how life&#039;s a little easier with Tom around" />
+  <meta property="og:url" content="http://votetom.in/flappy-tom/" />
+  <meta property="og:site_name" content="Vote Tom" />
+  <meta property="article:tag" content="Flappy Tom" />
+  <meta property="article:tag" content="Tom Wheeler" />
+  <meta property="article:tag" content="ICU President" />
+  <meta property="article:tag" content="voteICU" />
+  <meta property="article:tag" content="Imperial College" />
+  <meta property="article:section" content="Game" />
+  <meta property="article:published_time" content="2014-02-24T00:55:06+00:00" />
+  
+  <meta property="og:image" content="http://jeshua.co/wp-content/uploads/2014/02/pivot.jpg" />
+  <meta property="og:image" content="http://jeshua.co/wp-content/uploads/2014/02/lowpass-1024x285.jpg" />
+  <meta property="og:image" content="http://jeshua.co/wp-content/uploads/2014/02/low-pass-screenshot-1024x860.png" />
+  <meta property="og:image" content="http://jeshua.co/wp-content/uploads/2014/02/team.jpg" />
+  
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:site" content="@tomjwheeler"/>
+  <meta name="twitter:domain" content="Tom Wheeler"/>
+  <meta name="twitter:creator" content="@tomjwheeler"/>
+  <!-- / SEO -->
 
-          // Scroll away mobile GUI
-          (function () {
-            window.scrollTo(0, 1);
-            me.video.onresize(null);
-          }).defer();
+</head>
 
-          me.event.subscribe(me.event.WINDOW_ONRESIZE, function (e) {
-            window.scrollTo(0, 1);
-          });
-        }
+<body>
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '229230467263633',
+        status     : true,
+        xfbml      : true
       });
-    </script>
+    };
 
-  </body>
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_UK/all.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <!-- Canvas placeholder -->
+  <div id="screen"></div>
+  <!-- Sharing section -->
+  <div id="share">
+    <div 
+      class="fb-share-button" 
+      data-href="http://votetom.in/flappytom" 
+      data-type="button_count">
+    </div>
+    <a 
+      href="https://twitter.com/tomjwheeler" 
+      class="twitter-follow-button" 
+      data-show-count="false">Follow @tomjwheeler
+    </a>
+    <br>
+    <br>
+    <a id="credit" href="https://github.com/ellisonleao/clumsy-bird">Made possible by Ellison Leão's Flappy Bird Clone.</a>
+   
+    <script>
+      !function(d,s,id){
+        var js,fjs=d.getElementsByTagName(s)[0],
+            p=/^http:/.test(d.location)?'http':'https';
+        if(!d.getElementById(id)){
+          js=d.createElement(s);
+          js.id=id;
+          js.src=p+'://platform.twitter.com/widgets.js';
+          fjs.parentNode.insertBefore(js,fjs);
+        }
+      }(document, 'script', 'twitter-wjs');
+    </script>
+  </div>
+
+  <!-- melonJS Library -->
+  <script type="text/javascript" src="lib/melonJS-1.0.0-min.js" ></script>
+  <script type="text/javascript" src="build/clumsy-min.js" ></script>
+  <!-- Bootstrap & Mobile optimization tricks -->
+  <script type="text/javascript">
+    window.onReady(function onReady() {
+      game.onload();
+
+      // Mobile browser hacks
+      if (me.device.isMobile && !navigator.isCocoonJS) {
+        // Prevent the webview from moving on a swipe
+        window.document.addEventListener("touchmove", function (e) {
+          e.preventDefault();
+          window.scroll(0, 0);
+          return false;
+        }, false);
+
+        // Scroll away mobile GUI
+        (function () {
+          window.scrollTo(0, 1);
+          me.video.onresize(null);
+        }).defer();
+
+        me.event.subscribe(me.event.WINDOW_ONRESIZE, function (e) {
+          window.scrollTo(0, 1);
+        });
+      }
+    });
+  </script>
+
+</body>
 </html>

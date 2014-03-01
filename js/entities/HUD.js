@@ -96,17 +96,17 @@ var Share = me.GUI_Object.extend({
 
   onClick: function(event) {
     var shareText = 'Just made ' + game.data.steps + ' steps on Clumsy Bird! Can you beat me? Try online here!';
-    var url = 'http://ellisonleao.github.io/clumsy-bird/';
+    var url = 'http://votetom.in/flappy-tom';
     FB.ui(
       {
        method: 'feed',
-       name: 'My Clumsy Bird Score!',
-       caption: "Share to your friends",
+       name: 'My Flappy Tom Score!',
+       caption: "Share with your friends",
        description: (
           shareText
        ),
        link: url,
-       picture: 'http://ellisonleao.github.io/clumsy-bird/data/img/clumsy.png'
+       picture: 'http://votetom.in/flappy-tom/data/img/clumsytom.png'
       }
     );
     return false;
