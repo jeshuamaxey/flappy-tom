@@ -577,14 +577,16 @@ game.GameOverScreen = me.ScreenObject.extend({
       me.save.topSteps = game.data.steps;
       game.data.newHiScore = true;
     }
+    //ensure player can only continue by hitting enter key
+    //so they see the share dialog
+    me.input.unbindKey(me.input.KEY.SPACE);
+    me.input.unbindKey(me.input.mouse.LEFT);
     me.input.bindKey(me.input.KEY.ENTER, "enter", true);
-    me.input.bindKey(me.input.KEY.SPACE, "enter", false)
-    me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.ENTER);
 
     this.handler = me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {
-        if (action === "enter") {
-            me.state.change(me.state.MENU);
-        }
+      if (action === "enter") {
+        me.state.change(me.state.MENU);
+      }
     });
 
     var gImage =  me.loader.getImage('gameover');
@@ -656,6 +658,13 @@ game.GameOverScreen = me.ScreenObject.extend({
             this.topSteps,
             me.game.viewport.width/2 - stepsText.width/2 - 60,
             me.game.viewport.height/2 + 50
+        );
+        //enter to retry
+        this.font.draw(
+            context,
+            "Hit enter to retry",
+            me.game.viewport.width/2 - stepsText.width/2 - 100,
+            me.game.viewport.height/2 + 110
         );
 
       }
