@@ -9,7 +9,7 @@ game.TitleScreen = me.ScreenObject.extend({
     me.game.world.addChild(new BackgroundLayer('bg', 1));
 
     me.input.bindKey(me.input.KEY.ENTER, "enter", true);
-        me.input.bindKey(me.input.KEY.SPACE, "enter", true);
+    me.input.bindKey(me.input.KEY.SPACE, "enter", true);
     me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.ENTER);
 
     this.handler = me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {

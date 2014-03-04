@@ -446,7 +446,7 @@ game.TitleScreen = me.ScreenObject.extend({
     me.game.world.addChild(new BackgroundLayer('bg', 1));
 
     me.input.bindKey(me.input.KEY.ENTER, "enter", true);
-        me.input.bindKey(me.input.KEY.SPACE, "enter", true);
+    me.input.bindKey(me.input.KEY.SPACE, "enter", true);
     me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.ENTER);
 
     this.handler = me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {
@@ -660,9 +660,10 @@ game.GameOverScreen = me.ScreenObject.extend({
             me.game.viewport.height/2 + 50
         );
         //enter to retry
+        var text = me.device.touch ? "Refresh to retry" : "Hit enter to retry";
         this.font.draw(
             context,
-            "Hit enter to retry",
+            text,
             me.game.viewport.width/2 - stepsText.width/2 - 100,
             me.game.viewport.height/2 + 110
         );
